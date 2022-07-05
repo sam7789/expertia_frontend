@@ -1,0 +1,43 @@
+.job-description__container {
+  max-width: 600px;
+  margin: auto;
+  margin-top: 3rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.job-description div h1 {
+  color: var(--main-color);
+}
+.job-description button {
+  margin-left: 0px;
+  width: 8rem;
+}
+.job_heading {
+  margin: 2rem;
+}
+.job_appliedtrue {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 10rem;
+  margin: 6rem auto;
+  background-color: rgb(2, 215, 2);
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  align-items: center;
+}
+.job_appliedfalse {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 10rem;
+  margin: 6rem auto;
+  background-color: red;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  align-items: center;
+}

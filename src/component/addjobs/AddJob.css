@@ -1,0 +1,190 @@
+.addjob_container {
+    max-width: 500px;
+    margin: 5rem auto;
+    padding: 0rem 1rem;
+    min-height: 90vh;
+}
+
+.addjob_title,
+.techstack_title {
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--main-color);
+    margin-bottom: 2rem;
+}
+
+.addjob_label,
+.techstack_label {
+    width: 13rem;
+    text-align: left;
+}
+
+.addjob_form_section,
+.techstack_form_section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.artist_section_select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.addjob_form_section_artist {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.addjob_form_section_artist .addjob_label {
+    margin-top: 0.8rem;
+}
+
+.addjob_container .artist_section_select input {
+    width: 2rem;
+    margin: 0rem;
+    height: 2rem
+}
+
+#artists {
+    width: 100%;
+}
+
+.artist_section_results {
+    height: 15rem;
+    overflow-y: scroll;
+    border: 1px dotted var(--bg-color);
+    padding: 1rem;
+}
+
+.addjob_form_section__artistdiv {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.addjob_container input,
+.techstack_input {
+    width: 90%;
+    height: 4rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.addjob_container .addjob_form_submitbtn,
+.techstack_submitbtn {
+    border: none;
+    background-color: var(--main-color);
+    color: var(--white-color);
+    height: 3rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.artist_section_checkbox {
+    border: 1px solid #ccc;
+}
+
+.techstack_submitbtn,
+.techstack_cancelbtn {
+    width: 9rem;
+}
+
+.addjob_container .addjob_form_cancelbtn,
+.techstack_cancelbtn {
+    background-color: var(--territory-color);
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    padding: 0rem;
+    height: 3rem;
+    border-radius: 5px;
+}
+
+.addjob_form_bottom_section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.addjob_form_buttons_section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 15em;
+}
+
+.addjob_form_add_artist {
+    font-weight: 600;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 1rem;
+    color: var(--main-color);
+}
+
+.techstack {
+    background-color: rgba(0, 0, 0, 0.687);
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 1rem;
+}
+
+.techstack_innerdiv {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.techstack_container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    max-width: 500px;
+    max-height: 530px;
+    padding: 0rem 1rem;
+    background-color: #ECF2F9;
+    border: 1px solid var(--bg-color);
+    padding: 2rem 3rem;
+    border-radius: 7px;
+    overflow-y: scroll;
+}
+
+.techstack_topdiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.techstack_form_section textarea {
+    resize: none;
+    height: 13rem;
+}
+
+.techstack_bottomdiv {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+
+.techstack_closebtn {
+    padding: 1rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+.display-none {
+    display: none;
+    transition: all 1s ease-in-out;
+}

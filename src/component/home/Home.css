@@ -1,0 +1,67 @@
+.searchjobs {
+    width: 20rem;
+    height: 3rem;
+    padding: 1rem;
+    border: 1px solid var(--main-color);
+    background-color: var(--territory-color);
+    border-radius: 5px;
+}
+
+.home__container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    text-align: center;
+    min-height: 90vh;
+}
+
+.table-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.table-top__title {
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--main-color);
+}
+
+.topjobs_container{
+    margin-bottom: 3rem;
+}
+
+.topjobs_table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.topjobs_table th{
+    background-color: var(--bg-color);
+    text-align: center;
+    color: var(--white-color);
+}
+
+.topjobs_table th,
+.topjobs_table td{
+    border: 1px solid var(--bg-color);
+    padding: 1rem 2rem;
+}
+
+.topjobs_table__img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+
+.home__container .jobs_table__artists p{
+    display: inline-block;
+    margin: 0.5rem;
+}
+
+.home__container tbody td {
+    height: 10.25rem;
+}
