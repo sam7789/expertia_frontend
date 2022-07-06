@@ -1,4 +1,5 @@
 import { actionType } from "./actionType";
+import { loadingStart, loadingEnd } from "../loading/action";
 
 const fetchJobDetailSuccess = (jobDetail) => {
   return {
@@ -30,14 +31,17 @@ const fetchJobDetailLoading = () => {
 const getJobDetails = (jobId) => async (dispatch) => {
   // set loading to true
   dispatch(fetchJobDetailLoading());
+  dispatch(loadingStart());
   try {
     const response = await fetch(
       `https://expertiaapi.herokuapp.com/api/jobs/${jobId}`
     );
     const jobDetail = await response.json();
     dispatch(fetchJobDetailSuccess(jobDetail));
+    dispatch(loadingEnd());
   } catch (error) {
     dispatch(fetchJobDetailFailure(error));
+    dispatch(loadingEnd());
   }
 };
 

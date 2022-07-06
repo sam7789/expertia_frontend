@@ -4,7 +4,7 @@ import { Login } from "../component/login/Login";
 import { Signup } from "../component/register/Signup";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { PrivateRoute } from "./PrivateRoute";
+// import { PrivateRoute } from "./PrivateRoute";
 import { userToken } from "../redux/userData/action";
 import { fetchJobs } from "../redux/jobData/action";
 import { AddJob } from "../component/addjobs/AddJob";
@@ -16,15 +16,15 @@ export const AllRoutes = () => {
   useEffect(() => {
     dispatch(fetchJobs());
     return () => {};
-  }, []);
+  }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("token")) {
-  //     dispatch(userToken());
-  //   }
-  //   return () => {};
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      dispatch(userToken());
+    }
+    return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

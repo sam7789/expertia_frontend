@@ -1,4 +1,5 @@
 import { actionType } from "./actionType";
+import { loadingStart, loadingEnd } from "../loading/action";
 
 const fetchJobsDataSucess = (jobsData) => {
   return {
@@ -62,6 +63,7 @@ const postNewJobLoading = () => {
 const postNewJob = (jobData) => async (dispatch) => {
   // set loading to true
   dispatch(postNewJobLoading());
+  dispatch(loadingStart());
   try {
     const response = await fetch(
       "https://jJob-backend.herokuapp.com/api/Jobs/",
@@ -76,17 +78,20 @@ const postNewJob = (jobData) => async (dispatch) => {
     const data = await response.json();
     if (data.message) {
       dispatch(postNewJobFailure(data.message));
+      dispatch(loadingEnd());
     } else {
       dispatch(postNewJobSuccess(data));
+      dispatch(loadingEnd());
     }
   } catch (error) {
     dispatch(postNewJobFailure(error));
+    dispatch(loadingEnd());
   }
 };
 
 const fetchJobs = (query, page) => async (dispatch) => {
   dispatch(fetchJobsDataLoading()); // set loading to true
-  console.log(page);
+  dispatch(loadingStart());
   try {
     const res = await fetch(
       `https://expertiaapi.herokuapp.com/api/jobs/?q=${query}&page=${page}`
@@ -94,11 +99,14 @@ const fetchJobs = (query, page) => async (dispatch) => {
     const data = await res.json();
     if (data.message) {
       dispatch(fetchJobsDataFailure(data.message));
+      dispatch(loadingEnd());
     } else {
       dispatch(fetchJobsDataSucess(data));
+      dispatch(loadingEnd());
     }
   } catch (error) {
     dispatch(fetchJobsDataFailure(error)); // set error to true
+    dispatch(loadingEnd());
   }
 };
 
