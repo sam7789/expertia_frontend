@@ -84,12 +84,12 @@ const postNewJob = (jobData) => async (dispatch) => {
   }
 };
 
-const fetchJobs = (query) => async (dispatch) => {
+const fetchJobs = (query, page) => async (dispatch) => {
   dispatch(fetchJobsDataLoading()); // set loading to true
-  console.log(query);
+  console.log(page);
   try {
     const res = await fetch(
-      `https://expertiaapi.herokuapp.com/api/jobs/?q=${query}`
+      `https://expertiaapi.herokuapp.com/api/jobs/?q=${query}&page=${page}`
     ); // fetching data from the server
     const data = await res.json();
     if (data.message) {

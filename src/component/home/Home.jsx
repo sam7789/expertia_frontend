@@ -8,10 +8,13 @@ import { debounce } from "lodash";
 export const Home = () => {
   const [params, setParams] = useSearchParams();
   const search = params.get("q");
+  const pages = params.get("page");
   const [q, setq] = useState(search?.trim() || "");
+  const [page, setPage] = useState(pages ? pages : 1);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const jobsdata = useSelector((state) => state.jobs.jobsData.jobs);
+  const total = useSelector((state) => state.jobs.jobsData.total);
 
   const handleClick = (id) => {
     navigate(`/job-details/${id}`);
@@ -20,17 +23,19 @@ export const Home = () => {
   const handleChange = debounce((e) => {
     const { value } = e.target;
     setq(value);
+    setPage(1);
   }, 1000);
 
   useEffect(() => {
     let param = {};
     q && (param.q = q);
+    page && (param.page = page);
     setParams(param);
-    dispatch(fetchJobs(q));
+    dispatch(fetchJobs(q, page));
     return () => {
       dispatch(fetchJobsDataReset());
     };
-  }, [q, dispatch, setParams]);
+  }, [q, page, dispatch, setParams]);
 
   return (
     <section>
@@ -76,6 +81,30 @@ export const Home = () => {
             </table>
           </div>
         </div>
+        <button
+          disabled={page === total}
+          className="btn-load"
+          onClick={() => {
+            if (page < total) {
+              setPage(page + 1);
+            }
+            return;
+          }}
+        >
+          Next
+        </button>
+        <button
+          disabled={page === 1}
+          className="btn-load"
+          onClick={() => {
+            if (page > 1) {
+              setPage(page - 1);
+            }
+            return;
+          }}
+        >
+          Previous
+        </button>
       </section>
     </section>
   );
