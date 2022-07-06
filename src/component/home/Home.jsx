@@ -10,7 +10,7 @@ export const Home = () => {
   const search = params.get("q");
   const pages = params.get("page");
   const [q, setq] = useState(search?.trim() || "");
-  const [page, setPage] = useState(pages ? pages : 1);
+  const [page, setPage] = useState(pages ? Number(pages) : 1);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const jobsdata = useSelector((state) => state.jobs.jobsData.jobs);
